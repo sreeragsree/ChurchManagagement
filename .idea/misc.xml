@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android_Files/ChurchManagagement/app/src/main/res/layout/activity_ministry.xml" value="0.264" />
         <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/drawable/backbtn.xml" value="0.1435" />
         <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/drawable/border.xml" value="0.147" />
         <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/drawable/circularbluebordersolid.xml" value="0.1435" />
@@ -26,8 +27,6 @@
         <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/layout/activity_news.xml" value="0.184375" />
         <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/layout/activity_register.xml" value="0.19583333333333333" />
         <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/layout/activity_splash.xml" value="0.2" />
-        <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/layout/allmember_view.xml" value="0.2" />
-        <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/layout/ministry_view.xml" value="0.2" />
         <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/layout/progress_wheel.xml" value="0.184375" />
         <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/layout/toolbar_custom.xml" value="0.184375" />
       </map>

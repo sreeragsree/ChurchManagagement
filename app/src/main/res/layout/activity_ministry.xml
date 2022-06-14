@@ -92,7 +92,7 @@
                                 android:text="Ministry Name" />
 
                             <EditText
-                                android:id="@+id/ed_firstname"
+                                android:id="@+id/ed_name"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@null"
@@ -116,7 +116,7 @@
                             android:text="Category" />
 
                         <TextView
-                            android:id="@+id/ed_mobile"
+                            android:id="@+id/ed_category"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="textEmailAddress"
@@ -137,10 +137,11 @@
                             android:text="No: of Members" />
 
                         <TextView
-                            android:id="@+id/ed_email"
+
+                            android:id="@+id/ed_members"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="textEmailAddress"
+                            android:inputType="number"
                             android:padding="5dp" />
                     </LinearLayout>
 
@@ -159,7 +160,7 @@
                             android:text="Specifications" />
 
                         <EditText
-                            android:id="@+id/ed_password"
+                            android:id="@+id/ed_spec"
                             android:layout_width="match_parent"
                             android:layout_height="200dp"
                             android:background="@null"
@@ -191,14 +192,14 @@
                     android:visibility="gone" />
 
                 <TextView
-                    android:id="@+id/btn_countinue"
+                    android:id="@+id/btn_add"
                     android:layout_width="match_parent"
                     android:layout_height="52dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:background="@drawable/rounded_button"
                     android:gravity="center"
-                    android:text="Continue"
+                    android:text="Add Ministry"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:textSize="18dp"

@@ -70,7 +70,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     login.setEmail(binding.inputEmail.getText().toString());
                     login.setMobile(binding.inputPhonenumber.getText().toString());
                     login.setPassword(binding.inputPassword.getText().toString());
-                    login.setRole("user");
+                    login.setRole("admin");
                     realm.commitTransaction();
                     realm.close();
                     Toast.makeText(this, "Registration successfull", Toast.LENGTH_SHORT).show();

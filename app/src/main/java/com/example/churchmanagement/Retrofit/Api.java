@@ -20,6 +20,7 @@ public interface Api {
     @POST(APIClient.APPEND_URL + "getAllMembers")
     Call<JsonObject> getAllMembers(@Body JsonObject object);
     @POST(APIClient.APPEND_URL + "getAllMinistry")
+
     Call<JsonObject> getAllMinistry(@Body JsonObject object);
 
     @POST(APIClient.APPEND_URL + "updateMinistry")

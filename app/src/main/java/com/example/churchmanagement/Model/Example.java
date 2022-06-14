@@ -4,10 +4,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Example {
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/main
     @SerializedName("ResponseCode")
     @Expose
     private String responseCode;
@@ -52,9 +49,6 @@ public class Example {
     public void setResultData(ResultData resultData) {
         this.resultData = resultData;
     }
+}
 
-<<<<<<< HEAD
-}
-=======
-}
->>>>>>> origin/main
+

@@ -1,10 +1,10 @@
 package com.example.churchmanagement.Model;
 
-<<<<<<< HEAD
+
 import com.example.churchmanagement.Authentication.AllMember;
-=======
+
 import com.example.churchmanagement.Ministry.AllMinistry;
->>>>>>> origin/main
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -12,7 +12,6 @@ import java.util.List;
 
 public class ResultData {
 
-<<<<<<< HEAD
     @SerializedName("All_Members")
     @Expose
     private List<AllMember> allMembers = null;
@@ -25,7 +24,6 @@ public class ResultData {
         this.allMembers = allMembers;
     }
 
-=======
     @SerializedName("All_Ministry")
     @Expose
     private List<AllMinistry> allMinistry = null;
@@ -39,5 +37,4 @@ public class ResultData {
     }
 
 
->>>>>>> origin/main
 }

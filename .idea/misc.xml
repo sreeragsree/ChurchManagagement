@@ -3,7 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/drawable/backbtn.xml" value="0.1435" />
+        <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/drawable/circularbluebordersolid.xml" value="0.1435" />
+        <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/drawable/circularbordersolid.xml" value="0.1435" />
+        <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/drawable/circularbordersolidbottom.xml" value="0.1435" />
+        <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/drawable/circularbordersolidtop.xml" value="0.1435" />
+        <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/drawable/color_cursor.xml" value="0.1435" />
+        <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/drawable/ic_baseline_verified_24.xml" value="0.1435" />
+        <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/layout/activity_login.xml" value="0.19583333333333333" />
         <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/layout/activity_register.xml" value="0.19583333333333333" />
       </map>
     </option>
   </component>

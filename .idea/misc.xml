@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Android_Files/ChurchManagagement/app/src/main/res/layout/activity_ministry.xml" value="0.264" />
+        <entry key="..\:/Android_Files/ChurchManagagement/app/src/main/res/layout/ministry_card.xml" value="0.4" />
+        <entry key="..\:/Android_Files/ChurchManagagement/app/src/main/res/layout/ministry_view.xml" value="0.22826086956521738" />
         <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/drawable/backbtn.xml" value="0.1435" />
         <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/drawable/border.xml" value="0.147" />
         <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/drawable/circularbluebordersolid.xml" value="0.1435" />

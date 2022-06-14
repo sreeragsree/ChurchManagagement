@@ -71,10 +71,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@null"
-                    android:textCursorDrawable="@drawable/color_cursor"
                     android:fontFamily="@font/proximanovaregular"
                     android:hint="Enter username"
                     android:inputType="textEmailAddress"
+                    android:textCursorDrawable="@drawable/color_cursor"
                     android:textSize="14sp" />
 
             </LinearLayout>
@@ -92,10 +92,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@null"
-                    android:textCursorDrawable="@drawable/color_cursor"
                     android:fontFamily="@font/proximanovaregular"
                     android:hint="Your Password"
                     android:inputType="textPassword"
+                    android:textCursorDrawable="@drawable/color_cursor"
                     android:textSize="14sp" />
 
                 <Space
@@ -106,13 +106,13 @@
                 <TextView
                     android:id="@+id/link_forgotpassword"
                     android:layout_width="wrap_content"
-                    android:visibility="gone"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/proximanovaregular"
                     android:gravity="right"
                     android:text="Forgot Password?"
                     android:textColor="#b6bcc5"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    android:visibility="gone" />
 
             </LinearLayout>
 
@@ -128,23 +128,27 @@
                 android:padding="16dp"
                 android:text="Continue"
                 android:textColor="@color/white" />
+
             <LinearLayout
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:visibility="gone"
-                android:layout_height="wrap_content">
+                android:visibility="gone">
+
                 <TextView
                     android:id="@+id/lati"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" />
+
                 <TextView
                     android:id="@+id/longi"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" />
+
                 <TextView
                     android:id="@+id/addr"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" />
 
             </LinearLayout>
 
@@ -153,11 +157,11 @@
                 android:id="@+id/link_signup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
                 android:layout_marginBottom="24dp"
                 android:gravity="center"
                 android:orientation="horizontal"
-                android:padding="10dp">
+                android:padding="10dp"
+                android:visibility="visible">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -173,6 +177,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/proximanovaregular"
                     android:gravity="center"
+                    android:id="@+id/create"
                     android:text=" Create One"
                     android:textColor="#8e9cfe"
                     android:textSize="16dip" />

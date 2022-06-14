@@ -22,6 +22,14 @@ public class LoginDB {
 
     }
 
+    public Login getData(String username) {
+        Realm realm = Realm.getDefaultInstance();
+        RealmQuery<Login> query = realm.where(Login.class)
+                .equalTo("email", username);
+
+        return query.findFirst();
+    }
+
     public boolean login(String username,String password) {
         Realm realm = Realm.getDefaultInstance();
         RealmQuery<Login> query = realm.where(Login.class)

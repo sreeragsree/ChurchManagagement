@@ -11,6 +11,7 @@ import com.example.churchmanagement.MainActivity;
 import com.example.churchmanagement.R;
 import com.example.churchmanagement.databinding.ActivityLoginBinding;
 import com.example.churchmanagement.databinding.ActivityRegisterBinding;
+import com.example.churchmanagement.utils.Utils;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -22,17 +23,31 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+        Utils.setSystemBarColor(this, R.color.purple_500);
+        Utils.setSystemBarLight(this);
         initViews(binding);
     }
 
     private void initViews(ActivityLoginBinding binding) {
+        if (!Utils.getSharedPreference().getString("username", "").isEmpty()) {
+            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+            finish();
+        }
         binding.btnLogin.setOnClickListener(this);
+        binding.create.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
 
         switch (view.getId()){
+
+            case R.id.create:
+                startActivity(new Intent(this,RegisterActivity.class));
+
+                break;
+
+
             case R.id.btn_login:
 
                 if(binding.inputPhone.getText().toString().isEmpty() &&
@@ -47,7 +62,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 }
 
                 else{
-
+                    Utils.getSharedPreferenceEdit().putString("username", binding.inputPhone.getText().toString());
+                    Utils.getSharedPreferenceEdit().apply();
                     startActivity(new Intent(this, MainActivity.class));
                 }
 

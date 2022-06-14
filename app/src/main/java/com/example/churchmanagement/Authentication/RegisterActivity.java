@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.example.churchmanagement.R;
 import com.example.churchmanagement.databinding.ActivityRegisterBinding;
+import com.example.churchmanagement.utils.Utils;
 
 import io.realm.Realm;
 
@@ -24,6 +25,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         binding = ActivityRegisterBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+        Utils.setSystemBarColor(this, R.color.purple_500);
+        Utils.setSystemBarLight(this);
         initViews(binding);
     }
 
@@ -67,7 +70,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     login.setEmail(binding.inputEmail.getText().toString());
                     login.setMobile(binding.inputPhonenumber.getText().toString());
                     login.setPassword(binding.inputPassword.getText().toString());
-                    login.setRole("admin");
+                    login.setRole("user");
                     realm.commitTransaction();
                     realm.close();
                     Toast.makeText(this, "Registration successfull", Toast.LENGTH_SHORT).show();

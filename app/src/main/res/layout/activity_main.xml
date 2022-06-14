@@ -1,18 +1,363 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#24EEEAEA"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <include layout="@layout/toolbar_custom" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/homebanner" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/master_data"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_margin="@dimen/margin_medium"
+
+                android:layout_weight="1"
+                android:clickable="true"
+                android:elevation="@dimen/margin_medium"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="@dimen/margin_medium">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:padding="@dimen/margin_smaller"
+                        android:src="@drawable/ministry" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="@dimen/margin_small"
+                        android:text="All Ministry"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/members"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_margin="@dimen/margin_medium"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:elevation="@dimen/margin_medium"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="@dimen/margin_medium">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:padding="@dimen/margin_smaller"
+                        android:src="@drawable/membership" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="@dimen/margin_small"
+                        android:text="Members"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/advertisement"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_margin="@dimen/margin_medium"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:elevation="@dimen/margin_medium"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="@dimen/margin_medium">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:padding="@dimen/margin_smaller"
+                        android:src="@drawable/advertising" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="@dimen/margin_small"
+                        android:text="Advertisement"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/appointment"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_margin="@dimen/margin_medium"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:elevation="@dimen/margin_medium"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="@dimen/margin_medium">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:padding="@dimen/margin_smaller"
+                        android:src="@drawable/appointment" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="@dimen/margin_small"
+                        android:text="Appointment"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/donations"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_margin="@dimen/margin_medium"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:elevation="@dimen/margin_medium"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="@dimen/margin_medium">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:padding="@dimen/margin_smaller"
+                        android:src="@drawable/donation" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="@dimen/margin_small"
+                        android:text="Donations"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/bookings"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_margin="@dimen/margin_medium"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:elevation="@dimen/margin_medium"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="@dimen/margin_medium">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:padding="@dimen/margin_smaller"
+                        android:src="@drawable/bookings" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="@dimen/margin_small"
+                        android:text="Bookings"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/news"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_margin="@dimen/margin_medium"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:elevation="@dimen/margin_medium"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="@dimen/margin_medium">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:padding="@dimen/margin_smaller"
+                        android:src="@drawable/news" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="@dimen/margin_small"
+                        android:text="News"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/events"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_margin="@dimen/margin_medium"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:elevation="@dimen/margin_medium"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="@dimen/margin_medium">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:padding="@dimen/margin_smaller"
+                        android:src="@drawable/events" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="@dimen/margin_small"
+                        android:text="Events"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:orientation="horizontal"
+            android:paddingBottom="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/proximanovaregular"
+                android:gravity="end"
+                android:text="Logged as  : "
+                android:textAllCaps="true"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/version_no"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/proximanovaregular"
+                android:text="1.0"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+</LinearLayout>

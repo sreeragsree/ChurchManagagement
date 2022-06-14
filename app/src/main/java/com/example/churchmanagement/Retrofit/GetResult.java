@@ -2,6 +2,9 @@ package com.example.churchmanagement.Retrofit;
 
 import android.util.Log;
 
+import com.example.churchmanagement.BaseActivity;
+import com.example.churchmanagement.utils.App;
+import com.example.churchmanagement.utils.Utils;
 import com.google.gson.JsonObject;
 
 import retrofit2.Call;
@@ -12,6 +15,11 @@ public class GetResult {
     public static MyListener myListener;
 
     public void onNCHandle(Call<JsonObject> call, String res) {
+
+        if (!Utils.isNetworkAvailable(App.instance())) {
+            Utils.showToast(App.instance(), "Please Check Your Internet Connection");
+
+        } else {
 
             call.enqueue(new Callback<JsonObject>() {
                 @Override
@@ -32,6 +40,7 @@ public class GetResult {
                 }
             });
         }
+    }
 
     public interface MyListener {
 

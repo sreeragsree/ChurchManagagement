@@ -50,7 +50,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         binding.news.setOnClickListener(this);
         binding.events.setOnClickListener(this);
         binding.versionNo.setText(loginfo.getRole());
-        if (!loginfo.getRole().equalsIgnoreCase("admin")) {
+        if (!Utils.getSharedPreference().getString("username", "").equalsIgnoreCase("admin@gmail.com")) {
             binding.masterData.setVisibility(View.GONE);
             binding.members.setVisibility(View.GONE);
             binding.advertisement.setVisibility(View.GONE);

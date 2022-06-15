@@ -49,7 +49,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         binding.bookings.setOnClickListener(this);
         binding.news.setOnClickListener(this);
         binding.events.setOnClickListener(this);
-        binding.versionNo.setText(loginfo.getRole());
+
+
         if (!Utils.getSharedPreference().getString("username", "").equalsIgnoreCase("admin@gmail.com")) {
             binding.masterData.setVisibility(View.GONE);
             binding.members.setVisibility(View.GONE);

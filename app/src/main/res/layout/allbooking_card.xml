@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_full"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/tv_bookName"
+                    android:text="Sreerag"
+                    android:textColor="@color/black"
+                    android:padding="10dp"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:textSize="17sp"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/tv_bookAuditorium"
+                    android:text="Sreerag"
+                    android:textColor="@color/black"
+                    android:padding="10dp"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:textSize="17sp"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/tv_bookReason"
+                    android:text="Sreerag"
+                    android:textColor="@color/black"
+                    android:padding="10dp"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:textSize="17sp"
+                    android:layout_height="wrap_content"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/tv_bookDate"
+                    android:text="Sreerag"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:padding="10dp"
+                    android:textSize="17sp"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/tv_bookTime"
+                    android:text="Sreerag"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/proximanovaregular"
+                    android:padding="10dp"
+                    android:textSize="17sp"
+                    android:layout_height="wrap_content"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_width="30dp"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/ivacceptBooking"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_baseline_done_outline_24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <ImageView
+                    android:id="@+id/ivrejectBooking"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_baseline_close_24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

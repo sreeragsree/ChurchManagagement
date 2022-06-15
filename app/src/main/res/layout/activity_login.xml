@@ -3,32 +3,19 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/bg_color"
+    android:background="@color/white"
     android:fitsSystemWindows="true">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/backbtn"
-            android:layout_width="35dp"
-            android:visibility="gone"
-            android:layout_height="35dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="20dp"
-            android:padding="4dp"
-            android:src="@drawable/backbtn" />
-
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingLeft="24dp"
-            android:paddingTop="66dp"
+            android:paddingTop="20dp"
             android:paddingRight="24dp">
 
             <LinearLayout
@@ -36,6 +23,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:src="@drawable/church"
+                    android:layout_height="150dp"/>
 
                 <TextView
                     android:layout_width="match_parent"

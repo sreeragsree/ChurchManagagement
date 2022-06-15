@@ -57,6 +57,14 @@
 
             </LinearLayout>
 
+            <Button
+                android:visibility="gone"
+                android:id="@+id/btn_join"
+                android:layout_gravity="center"
+                android:text="JOIN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="5dp"/>
@@ -163,10 +171,12 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/admin_add_del"
             android:weightSum="2"
             android:orientation="vertical"
             android:layout_width="30sp"
             android:layout_height="match_parent">
+
 
             <ImageView
                 android:id="@+id/ivEditministry"

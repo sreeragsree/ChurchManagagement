@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.churchmanagement.BaseActivity;
 import com.example.churchmanagement.Model.ResponseCommon;
 import com.example.churchmanagement.R;
 import com.example.churchmanagement.Retrofit.APIClient;
@@ -23,7 +24,7 @@ import org.json.JSONObject;
 import io.realm.Realm;
 import retrofit2.Call;
 
-public class RegisterActivity extends AppCompatActivity implements View.OnClickListener, GetResult.MyListener {
+public class RegisterActivity extends BaseActivity implements View.OnClickListener, GetResult.MyListener {
 
     ActivityRegisterBinding binding;
     private Realm realm;
@@ -35,7 +36,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         binding = ActivityRegisterBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
-        Utils.setSystemBarColor(this, R.color.purple_500);
+        Utils.setSystemBarColor(this, R.color.indigo_50);
         Utils.setSystemBarLight(this);
         initViews(binding);
     }
@@ -70,7 +71,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
                 } else {
 
-
+                    showProgressWheel();
                     JSONObject jsonObject = new JSONObject();
                     try {
                         jsonObject.put("name", binding.inputName.getText().toString().trim());
@@ -100,9 +101,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     public void callback(JsonObject result, String callNo) {
 
         if (callNo.equalsIgnoreCase("register")) {
+            hideProgressWheel(true);
             Gson gson = new Gson();
             ResponseCommon rs = gson.fromJson(result.toString(), ResponseCommon.class);
-            if(rs.getResult().equalsIgnoreCase("true")){
+            if (rs.getResult().equalsIgnoreCase("true")) {
                 realm = Realm.getDefaultInstance();
                 realm.beginTransaction();
                 Login login = realm.createObject(Login.class);
@@ -113,8 +115,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 login.setRole("user");
                 realm.commitTransaction();
                 realm.close();
-                      Toast.makeText(this, "Registration successfull", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(this,LoginActivity.class));
+                Toast.makeText(this, "Registration successfull", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, LoginActivity.class));
 
             }
 

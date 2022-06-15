@@ -29,6 +29,16 @@ public interface Api {
     @POST(APIClient.APPEND_URL + "del_ministry")
     Call<JsonObject> del_ministry(@Body JsonObject object);
 
+    @POST(APIClient.APPEND_URL + "addMinistryRequest")
+    Call<JsonObject> addMinistryRequest(@Body JsonObject object);
+
+    @POST(APIClient.APPEND_URL + "getMinistryRequestStatus")
+    Call<JsonObject> getMinistryRequestStatus(@Body JsonObject object);
+
+
+
+
+
 
 
 }

@@ -1,11 +1,10 @@
 package com.example.churchmanagement.Ministry;
 
-import androidx.recyclerview.widget.LinearLayoutManager;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.churchmanagement.Authentication.Login;
 import com.example.churchmanagement.Authentication.LoginDB;
@@ -13,7 +12,6 @@ import com.example.churchmanagement.BaseActivity;
 import com.example.churchmanagement.Interface.RecyclerViewClickInterface;
 import com.example.churchmanagement.Model.Example;
 import com.example.churchmanagement.Model.ResponseCommon;
-import com.example.churchmanagement.Model.ResultData;
 import com.example.churchmanagement.R;
 import com.example.churchmanagement.Retrofit.APIClient;
 import com.example.churchmanagement.Retrofit.GetResult;
@@ -32,8 +30,8 @@ import java.util.List;
 
 import retrofit2.Call;
 
-public class MinistryActivity extends BaseActivity implements GetResult.MyListener,View.OnClickListener, RecyclerViewClickInterface {
-    
+public class MinistryActivity extends BaseActivity implements GetResult.MyListener, View.OnClickListener, RecyclerViewClickInterface {
+
     ActivityMinistryBinding binding;
     List<AllMinistry> ministrylist;
 
@@ -51,16 +49,13 @@ public class MinistryActivity extends BaseActivity implements GetResult.MyListen
     }
 
     private void addMinistry() {
-
-        String name,category,members,spec;
-
+        String name, category, members, spec;
         name = binding.edName.getText().toString();
         category = binding.edCategory.getText().toString();
         members = binding.edNoofpersons.getText().toString();
         spec = binding.edSpec.getText().toString();
 
-        if( !name.equals("") && !category.equals("") && !members.equals("") && !spec.equals(""))
-        {
+        if (!name.equals("") && !category.equals("") && !members.equals("") && !spec.equals("")) {
             JSONObject jsonObject = new JSONObject();
             try {
                 jsonObject.put("ministry_name", name);
@@ -76,8 +71,7 @@ public class MinistryActivity extends BaseActivity implements GetResult.MyListen
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-        }
-        else {
+        } else {
             hideProgressWheel(true);
             Toast.makeText(this, "Enter all fields", Toast.LENGTH_SHORT).show();
         }
@@ -89,105 +83,112 @@ public class MinistryActivity extends BaseActivity implements GetResult.MyListen
         binding.btnAdd.setOnClickListener(this);
         binding.btnView.setOnClickListener(this);
 
+        if (!Utils.getSharedPreference().getString("username", "").equalsIgnoreCase("admin@gmail.com")) {
+            binding.btnAdd.setVisibility(View.GONE);
+            binding.btnView.setVisibility(View.GONE);
+            binding.llAddMinistry.setVisibility(View.GONE);
+            getAllMinistries();
+        }
+
     }
 
     @Override
     public void callback(JsonObject result, String callNo) {
 
-        if(callNo.equalsIgnoreCase("addMinistry")) {
+        if (callNo.equalsIgnoreCase("addMinistry")) {
 
             Gson gson = new Gson();
             hideProgressWheel(true);
 
             ResponseCommon example = gson.fromJson(result.toString(), ResponseCommon.class);
 
-            if(example.getResult().equalsIgnoreCase("true"))
-            {
-                showAlert("Ministry added successfully","Success");
+            if (example.getResult().equalsIgnoreCase("true")) {
+                showAlert("Ministry added successfully", "Success");
                 clearFileds();
-            }
-            else
-            {
+            } else {
                 Toast.makeText(MinistryActivity.this, example.getResponseMsg(), Toast.LENGTH_SHORT).show();
 
             }
-        }
-        else if(callNo.equalsIgnoreCase("getAllMinistry")) {
+        } else if (callNo.equalsIgnoreCase("getAllMinistry")) {
 
             Gson gson = new Gson();
             hideProgressWheel(true);
 
-            Example example = gson.fromJson(result.toString(),Example.class);
+            Example example = gson.fromJson(result.toString(), Example.class);
 
             ministrylist = new ArrayList<>();
 
 
-
-
-            if(example.getResultData().getAllMinistry() == null)
-            {
+            if (example.getResultData().getAllMinistry() == null) {
                 hideProgressWheel(true);
                 binding.tvnothing.setVisibility(View.VISIBLE);
                 binding.rcvAllministries.setVisibility(View.GONE);
 
-            }else
-            {
+            } else {
                 ministrylist = example.getResultData().getAllMinistry();
 
                 hideProgressWheel(true);
                 binding.rcvAllministries.setVisibility(View.VISIBLE);
 
-                MinistryAdapter adapter = new MinistryAdapter(MinistryActivity.this, ministrylist,this);
+                MinistryAdapter adapter = new MinistryAdapter(MinistryActivity.this, ministrylist, this);
                 binding.rcvAllministries.setLayoutManager(new LinearLayoutManager(this));
                 binding.rcvAllministries.setAdapter(adapter);
 
             }
 
-        }
-        else  if(callNo.equalsIgnoreCase("updateMinistry")) {
+        } else if (callNo.equalsIgnoreCase("updateMinistry")) {
 
             Gson gson = new Gson();
             hideProgressWheel(true);
 
             ResponseCommon example = gson.fromJson(result.toString(), ResponseCommon.class);
 
-            if(example.getResult().equalsIgnoreCase("true"))
-            {
-                showAlert("Ministry updated successfully","Success");
+            if (example.getResult().equalsIgnoreCase("true")) {
+                showAlert("Ministry updated successfully", "Success");
                 binding.btnAdd.setText("Add Ministry");
                 clearFileds();
-            }
-            else
-            {
+            } else {
                 Toast.makeText(MinistryActivity.this, example.getResponseMsg(), Toast.LENGTH_SHORT).show();
 
             }
-        }
-
-        else  if(callNo.equalsIgnoreCase("del_ministry")) {
+        } else if (callNo.equalsIgnoreCase("del_ministry")) {
 
             Gson gson = new Gson();
             hideProgressWheel(true);
 
             ResponseCommon example = gson.fromJson(result.toString(), ResponseCommon.class);
 
-            if(example.getResult().equalsIgnoreCase("true"))
-            {
-                showAlert("Ministry deleted successfully","Success");
+            if (example.getResult().equalsIgnoreCase("true")) {
+                showAlert("Ministry deleted successfully", "Success");
                 binding.btnAdd.setText("Add Ministry");
                 binding.llAddMinistry.setVisibility(View.VISIBLE);
                 binding.btnView.setVisibility(View.VISIBLE);
                 binding.rcvAllministries.setVisibility(View.GONE);
                 binding.tvnothing.setVisibility(View.GONE);
-            }
-            else
-            {
+            } else {
                 Toast.makeText(MinistryActivity.this, example.getResponseMsg(), Toast.LENGTH_SHORT).show();
 
             }
         }
 
 
+
+        else if (callNo.equalsIgnoreCase("addMinistryRequest")) {
+            hideProgressWheel(true);
+            Gson gson=new Gson();
+            ResponseCommon responseCommon=gson.fromJson(result.toString(),ResponseCommon.class);
+            if(responseCommon.getResult().equalsIgnoreCase("true")){
+
+                showAlert(responseCommon.getResponseMsg(), "Success");
+
+            }
+
+
+
+        } else {
+
+
+        }
 
 
     }
@@ -199,25 +200,19 @@ public class MinistryActivity extends BaseActivity implements GetResult.MyListen
 
             case R.id.btn_add:
 
-                if(binding.btnAdd.getText().toString().equalsIgnoreCase("Add Ministry"))
-                {
+                if (binding.btnAdd.getText().toString().equalsIgnoreCase("Add Ministry")) {
                     showProgressWheel();
                     addMinistry();
-                }
-                else if(binding.btnAdd.getText().toString().equalsIgnoreCase("Go Back"))
-                {
+                } else if (binding.btnAdd.getText().toString().equalsIgnoreCase("Go Back")) {
                     binding.btnAdd.setText("Add Ministry");
                     binding.llAddMinistry.setVisibility(View.VISIBLE);
                     binding.btnView.setVisibility(View.VISIBLE);
                     binding.rcvAllministries.setVisibility(View.GONE);
                     binding.tvnothing.setVisibility(View.GONE);
-                }
-                else if(binding.btnAdd.getText().toString().equalsIgnoreCase("Update Ministry"))
-                {
+                } else if (binding.btnAdd.getText().toString().equalsIgnoreCase("Update Ministry")) {
                     showProgressWheel();
                     updateMinistry();
                 }
-
 
 
                 break;
@@ -236,7 +231,7 @@ public class MinistryActivity extends BaseActivity implements GetResult.MyListen
 
     private void updateMinistry() {
 
-        String name,category,members,spec,id;
+        String name, category, members, spec, id;
 
         id = binding.edId.getText().toString();
         name = binding.edName.getText().toString();
@@ -244,8 +239,7 @@ public class MinistryActivity extends BaseActivity implements GetResult.MyListen
         members = binding.edNoofpersons.getText().toString();
         spec = binding.edSpec.getText().toString();
 
-        if( !name.equals("") && !category.equals("") && !members.equals("") && !spec.equals(""))
-        {
+        if (!name.equals("") && !category.equals("") && !members.equals("") && !spec.equals("")) {
             JSONObject jsonObject = new JSONObject();
             try {
                 jsonObject.put("id", id);
@@ -262,8 +256,7 @@ public class MinistryActivity extends BaseActivity implements GetResult.MyListen
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-        }
-        else {
+        } else {
             hideProgressWheel(true);
             Toast.makeText(this, "Enter all fields", Toast.LENGTH_SHORT).show();
         }
@@ -271,6 +264,7 @@ public class MinistryActivity extends BaseActivity implements GetResult.MyListen
     }
 
     private void getAllMinistries() {
+        showProgressWheel();
         JSONObject jsonObject = new JSONObject();
         try {
 
@@ -305,15 +299,38 @@ public class MinistryActivity extends BaseActivity implements GetResult.MyListen
             binding.rcvAllministries.setVisibility(View.GONE);
             binding.tvnothing.setVisibility(View.GONE);
 
-        }
-        else if(chk.equalsIgnoreCase("DELETE"))
-        {
+        } else if (chk.equalsIgnoreCase("DELETE")) {
             String id = ministrylist.get(position).getId();
 
             deleteMinistry(id);
+        } else {
+
+            String id = ministrylist.get(position).getId();
+            addMinistryRequest(id);
+
+
         }
 
 
+    }
+
+    private void addMinistryRequest(String id) {
+        showProgressWheel();
+        JSONObject jsonObject = new JSONObject();
+        try {
+
+            jsonObject.put("ministry_", id);
+            jsonObject.put("member_id", Utils.getSharedPreference().getString("username", ""));
+            jsonObject.put("status", "0");
+
+            JsonParser jsonParser = new JsonParser();
+            Call<JsonObject> call = APIClient.getInterface().addMinistryRequest((JsonObject) jsonParser.parse(jsonObject.toString()));
+            GetResult getResult = new GetResult();
+            getResult.setMyListener(this);
+            getResult.onNCHandle(call, "addMinistryRequest");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
     private void deleteMinistry(String id) {
@@ -332,8 +349,7 @@ public class MinistryActivity extends BaseActivity implements GetResult.MyListen
         }
     }
 
-    public void clearFileds()
-    {
+    public void clearFileds() {
         binding.edName.setText("");
         binding.edSpec.setText("");
         binding.edNoofpersons.setText("");

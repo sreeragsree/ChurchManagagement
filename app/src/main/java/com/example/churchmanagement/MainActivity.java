@@ -25,24 +25,22 @@ import com.example.churchmanagement.utils.Utils;
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     ActivityMainBinding binding;
-    ImageView textView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
-        textView=view.findViewById(R.id.logout);
         setTitle("Home");
-        ActionBarUtils.setActionBar(this, true);
+        ActionBarUtils.setActionBar(this, false);
         Login loginfo = new LoginDB().getData(Utils.getSharedPreference().getString("username", "st"));
         initViews(binding, loginfo);
     }
 
     private void initViews(ActivityMainBinding binding, Login loginfo) {
-
+        binding.tbMain.logout.setVisibility(View.VISIBLE);
         binding.masterData.setOnClickListener(this);
-        textView.setOnClickListener(this);
+        binding.tbMain.logout.setOnClickListener(this);
         binding.members.setOnClickListener(this);
         binding.advertisement.setOnClickListener(this);
         binding.appointment.setOnClickListener(this);
@@ -52,7 +50,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
 
         if (!Utils.getSharedPreference().getString("username", "").equalsIgnoreCase("admin@gmail.com")) {
-            binding.masterData.setVisibility(View.GONE);
             binding.members.setVisibility(View.GONE);
             binding.advertisement.setVisibility(View.GONE);
             binding.donations.setVisibility(View.GONE);

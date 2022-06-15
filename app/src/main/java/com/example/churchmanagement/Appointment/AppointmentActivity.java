@@ -1,7 +1,5 @@
 package com.example.churchmanagement.Appointment;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 
@@ -9,7 +7,6 @@ import com.example.churchmanagement.Authentication.Login;
 import com.example.churchmanagement.Authentication.LoginDB;
 import com.example.churchmanagement.BaseActivity;
 import com.example.churchmanagement.databinding.ActivityAppointmentBinding;
-import com.example.churchmanagement.databinding.ActivityMainBinding;
 import com.example.churchmanagement.utils.ActionBarUtils;
 import com.example.churchmanagement.utils.Utils;
 

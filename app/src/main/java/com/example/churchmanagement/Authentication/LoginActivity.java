@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.churchmanagement.BaseActivity;
 import com.example.churchmanagement.MainActivity;
 import com.example.churchmanagement.Model.ResponseCommon;
 import com.example.churchmanagement.R;
@@ -24,7 +25,7 @@ import org.json.JSONObject;
 
 import retrofit2.Call;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener,GetResult.MyListener {
+public class LoginActivity extends BaseActivity implements View.OnClickListener,GetResult.MyListener {
 
     ActivityLoginBinding binding;
 
@@ -34,7 +35,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
-        Utils.setSystemBarColor(this, R.color.purple_500);
+        Utils.setSystemBarColor(this, R.color.indigo_50);
         Utils.setSystemBarLight(this);
         initViews(binding);
     }
@@ -68,6 +69,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 }
 
                 else{
+                    showProgressWheel();
                     JSONObject jsonObject = new JSONObject();
                     try {
                         jsonObject.put("username", binding.inputPhone.getText().toString().trim());
@@ -97,6 +99,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void callback(JsonObject result, String callNo) {
 
         if(callNo.equalsIgnoreCase("login")){
+            hideProgressWheel(true);
             Gson gson = new Gson();
             ResponseCommon responseCommon = gson.fromJson(result.toString(), ResponseCommon.class);
 

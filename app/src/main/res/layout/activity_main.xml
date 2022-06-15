@@ -8,7 +8,9 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <include layout="@layout/toolbar_custom" />
+    <include
+        android:id="@+id/tb_main"
+        layout="@layout/toolbar_custom" />
 
     <ImageView
         android:layout_width="match_parent"

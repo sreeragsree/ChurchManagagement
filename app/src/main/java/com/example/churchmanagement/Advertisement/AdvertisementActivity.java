@@ -29,7 +29,7 @@ public class AdvertisementActivity extends BaseActivity {
     }
 
     private void initViews(ActivityAdvertisementBinding binding, Login loginfo) {
-        Toast.makeText(this,   loginfo.getRole(), Toast.LENGTH_SHORT).show();
+
 
     }
 }

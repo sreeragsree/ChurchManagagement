@@ -35,9 +35,9 @@ public class AllMemberAdapter extends RecyclerView.Adapter<AllMemberAdapter.View
     @Override
     public void onBindViewHolder(@NonNull AllMemberAdapter.ViewHolder holder, int position) {
         AllMember member=allMembers.get(position);
-        holder.rowXmlViewBinding.memName.setText("Name :"+member.getName());
-        holder.rowXmlViewBinding.memEmail.setText("Email :"+member.getEmail());
-        holder.rowXmlViewBinding.memPhone.setText("Mobile :"+member.getMobile());
+        holder.rowXmlViewBinding.memName.setText("Name : "+member.getName());
+        holder.rowXmlViewBinding.memEmail.setText("Email : "+member.getEmail());
+        holder.rowXmlViewBinding.memPhone.setText("Mobile : "+member.getMobile());
 
     }
 

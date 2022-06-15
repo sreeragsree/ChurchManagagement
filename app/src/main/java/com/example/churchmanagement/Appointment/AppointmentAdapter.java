@@ -7,8 +7,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.churchmanagement.Advertisement.AdvertisementAdapter;
-import com.example.churchmanagement.databinding.AdvertisementcardBinding;
 import com.example.churchmanagement.databinding.AppointmentCardBinding;
 
 

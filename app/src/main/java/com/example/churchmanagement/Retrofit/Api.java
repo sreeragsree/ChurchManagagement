@@ -35,10 +35,13 @@ public interface Api {
     @POST(APIClient.APPEND_URL + "getMinistryRequestStatus")
     Call<JsonObject> getMinistryRequestStatus(@Body JsonObject object);
 
+    @POST(APIClient.APPEND_URL + "getAllMembersInMinistry")
+    Call<JsonObject> getAllMembersInMinistry(@Body JsonObject object);
 
+    @POST(APIClient.APPEND_URL + "updateMinistryRequest")
+    Call<JsonObject> updateMinistryRequest(@Body JsonObject object);
 
-
-
-
+    @POST(APIClient.APPEND_URL + "deleteMinistryRequest")
+    Call<JsonObject> deleteMinistryRequest(@Body JsonObject object);
 
 }

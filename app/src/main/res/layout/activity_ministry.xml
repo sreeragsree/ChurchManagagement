@@ -249,6 +249,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:visibility="gone"
+                android:layout_marginBottom="150dp"
+                android:id="@+id/rcv_allmembers"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
             <TextView
                 android:id="@+id/tvnothing"
                 android:visibility="gone"

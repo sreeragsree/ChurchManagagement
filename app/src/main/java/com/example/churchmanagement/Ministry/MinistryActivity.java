@@ -34,6 +34,7 @@ public class MinistryActivity extends BaseActivity implements GetResult.MyListen
 
     ActivityMinistryBinding binding;
     List<AllMinistry> ministrylist;
+    List<MemberListMinistry> ministryMembers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -170,8 +171,36 @@ public class MinistryActivity extends BaseActivity implements GetResult.MyListen
 
             }
         }
+        else if (callNo.equalsIgnoreCase("getAllMembersInMinistry")) {
+
+            Gson gson = new Gson();
+            hideProgressWheel(true);
+
+            Example example = gson.fromJson(result.toString(), Example.class);
+
+            ministryMembers = new ArrayList<>();
+
+            if (example.getResultData().getMemberListMinistry() == null) {
+                hideProgressWheel(true);
+                binding.tvnothing.setVisibility(View.VISIBLE);
+                binding.rcvAllmembers.setVisibility(View.GONE);
+                binding.rcvAllministries.setVisibility(View.GONE);
+
+            } else {
+                ministryMembers = example.getResultData().getMemberListMinistry();
+
+                hideProgressWheel(true);
+                binding.rcvAllmembers.setVisibility(View.VISIBLE);
+                binding.rcvAllministries.setVisibility(View.GONE);
+
+                AllMinistryMembersAdapter adapter = new AllMinistryMembersAdapter(MinistryActivity.this, ministryMembers, this);
+                binding.rcvAllmembers.setLayoutManager(new LinearLayoutManager(this));
+                binding.rcvAllmembers.setAdapter(adapter);
+
+            }
 
 
+        }
 
         else if (callNo.equalsIgnoreCase("addMinistryRequest")) {
             hideProgressWheel(true);
@@ -182,10 +211,34 @@ public class MinistryActivity extends BaseActivity implements GetResult.MyListen
                 showAlert(responseCommon.getResponseMsg(), "Success");
 
             }
+        }
+
+        else if (callNo.equalsIgnoreCase("updateMinistryRequest")) {
+
+            hideProgressWheel(true);
+            Gson gson=new Gson();
+            ResponseCommon responseCommon=gson.fromJson(result.toString(),ResponseCommon.class);
+            if(responseCommon.getResult().equalsIgnoreCase("true")){
+
+                showAlert(responseCommon.getResponseMsg(), "Success");
+
+            }
+        }
+
+        else if (callNo.equalsIgnoreCase("deleteMinistryRequest")) {
+
+            hideProgressWheel(true);
+            Gson gson=new Gson();
+            ResponseCommon responseCommon=gson.fromJson(result.toString(),ResponseCommon.class);
+            if(responseCommon.getResult().equalsIgnoreCase("true")){
+
+                showAlert(responseCommon.getResponseMsg(), "Success");
+
+            }
+        }
 
 
-
-        } else {
+        else {
 
 
         }
@@ -303,7 +356,32 @@ public class MinistryActivity extends BaseActivity implements GetResult.MyListen
             String id = ministrylist.get(position).getId();
 
             deleteMinistry(id);
-        } else {
+        }
+
+        else if (chk.equalsIgnoreCase("VIEWMEMBERS")) {
+
+            String id = ministrylist.get(position).getId();
+            viewMembersInMinistry(id);
+
+        }
+
+        else if (chk.equalsIgnoreCase("ACCEPT")) {
+
+            String row_id = ministryMembers.get(position).getId();
+            String status = "1";
+            acceptInvitation(row_id,status);
+
+        }
+
+        else if (chk.equalsIgnoreCase("REJECT")) {
+
+            String row_id = ministryMembers.get(position).getId();
+            rejectInvitation(row_id);
+
+        }
+
+
+        else {
 
             String id = ministrylist.get(position).getId();
             addMinistryRequest(id);
@@ -314,12 +392,66 @@ public class MinistryActivity extends BaseActivity implements GetResult.MyListen
 
     }
 
+    private void rejectInvitation(String row_id) {
+        showProgressWheel();
+        JSONObject jsonObject = new JSONObject();
+        try {
+
+            jsonObject.put("id", row_id);
+
+            JsonParser jsonParser = new JsonParser();
+            Call<JsonObject> call = APIClient.getInterface().deleteMinistryRequest((JsonObject) jsonParser.parse(jsonObject.toString()));
+            GetResult getResult = new GetResult();
+            getResult.setMyListener(this);
+            getResult.onNCHandle(call, "deleteMinistryRequest");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void acceptInvitation(String row_id, String status) {
+        showProgressWheel();
+        JSONObject jsonObject = new JSONObject();
+        try {
+
+            jsonObject.put("id", row_id);
+            jsonObject.put("status", status);
+
+            JsonParser jsonParser = new JsonParser();
+            Call<JsonObject> call = APIClient.getInterface().updateMinistryRequest((JsonObject) jsonParser.parse(jsonObject.toString()));
+            GetResult getResult = new GetResult();
+            getResult.setMyListener(this);
+            getResult.onNCHandle(call, "updateMinistryRequest");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void viewMembersInMinistry(String id) {
+
+        showProgressWheel();
+        JSONObject jsonObject = new JSONObject();
+        try {
+
+            jsonObject.put("ministry_id", id);
+
+            JsonParser jsonParser = new JsonParser();
+            Call<JsonObject> call = APIClient.getInterface().getAllMembersInMinistry((JsonObject) jsonParser.parse(jsonObject.toString()));
+            GetResult getResult = new GetResult();
+            getResult.setMyListener(this);
+            getResult.onNCHandle(call, "getAllMembersInMinistry");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+    }
+
     private void addMinistryRequest(String id) {
         showProgressWheel();
         JSONObject jsonObject = new JSONObject();
         try {
 
-            jsonObject.put("ministry_", id);
+            jsonObject.put("ministry_id", id);
             jsonObject.put("member_id", Utils.getSharedPreference().getString("username", ""));
             jsonObject.put("status", "0");
 

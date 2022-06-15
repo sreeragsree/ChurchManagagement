@@ -8,7 +8,7 @@
     <string name="message">This App will send you an SMS message for verification and standard rates apply.. Kindly enter your phone Number</string>
 
     <string name="reset_pass_message">Seems like you forgot your password for MarksPlus. If this is true, click below to reset your password.</string>
-    
+
     <string-array name="auditorium">
         <item>Choose one</item>
         <item>Auditorium-1</item>

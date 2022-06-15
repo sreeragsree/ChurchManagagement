@@ -3,15 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android_Files/ChurchManagagement/app/src/main/res/drawable/allministry_memberscard.xml" value="0.1615" />
         <entry key="..\:/Android_Files/ChurchManagagement/app/src/main/res/layout/activity_advertisement.xml" value="0.22826086956521738" />
         <entry key="..\:/Android_Files/ChurchManagagement/app/src/main/res/layout/activity_appointment.xml" value="0.22826086956521738" />
         <entry key="..\:/Android_Files/ChurchManagagement/app/src/main/res/layout/activity_booking.xml" value="0.21920289855072464" />
+        <entry key="..\:/Android_Files/ChurchManagagement/app/src/main/res/layout/activity_donations.xml" value="0.21920289855072464" />
+        <entry key="..\:/Android_Files/ChurchManagagement/app/src/main/res/layout/activity_events.xml" value="0.21920289855072464" />
         <entry key="..\:/Android_Files/ChurchManagagement/app/src/main/res/layout/activity_ministry.xml" value="0.264" />
+        <entry key="..\:/Android_Files/ChurchManagagement/app/src/main/res/layout/activity_payment_page.xml" value="0.21920289855072464" />
         <entry key="..\:/Android_Files/ChurchManagagement/app/src/main/res/layout/advertisementcard.xml" value="0.22826086956521738" />
         <entry key="..\:/Android_Files/ChurchManagagement/app/src/main/res/layout/allbooking_card.xml" value="0.21920289855072464" />
         <entry key="..\:/Android_Files/ChurchManagagement/app/src/main/res/layout/allmember_view.xml" value="0.21920289855072464" />
+        <entry key="..\:/Android_Files/ChurchManagagement/app/src/main/res/layout/allministry_memberscard.xml" value="0.21920289855072464" />
         <entry key="..\:/Android_Files/ChurchManagagement/app/src/main/res/layout/appointment_card.xml" value="0.20425724637681159" />
-        <entry key="..\:/Android_Files/ChurchManagagement/app/src/main/res/layout/ministry_card.xml" value="0.4" />
+        <entry key="..\:/Android_Files/ChurchManagagement/app/src/main/res/layout/ministry_card.xml" value="0.264" />
         <entry key="..\:/Android_Files/ChurchManagagement/app/src/main/res/layout/ministry_view.xml" value="0.22826086956521738" />
         <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/drawable/backbtn.xml" value="0.1435" />
         <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/drawable/border.xml" value="0.147" />

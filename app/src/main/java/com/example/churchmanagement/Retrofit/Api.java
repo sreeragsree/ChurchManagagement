@@ -44,4 +44,30 @@ public interface Api {
     @POST(APIClient.APPEND_URL + "deleteMinistryRequest")
     Call<JsonObject> deleteMinistryRequest(@Body JsonObject object);
 
+    /*  CHURCH EVENTS NOT COMPLETED*/
+    @POST(APIClient.APPEND_URL + "addChurchEvents")
+    Call<JsonObject> addChurchEvents(@Body JsonObject object);
+
+    @POST(APIClient.APPEND_URL + "getAllChurchEvents")
+    Call<JsonObject> getAllChurchEvents(@Body JsonObject object);
+
+    @POST(APIClient.APPEND_URL + "updateChurchEvents")
+    Call<JsonObject> updateChurchEvents(@Body JsonObject object);
+
+    @POST(APIClient.APPEND_URL + "deleteChurchEvents")
+    Call<JsonObject> deleteChurchEvents(@Body JsonObject object);
+
+    /*  ADVERTISEMENTS/NEWS NOT COMPLETED*/
+    @POST(APIClient.APPEND_URL + "addAdvertisements")
+    Call<JsonObject> addAdvertisements(@Body JsonObject object);
+
+    @POST(APIClient.APPEND_URL + "getAllAdvertisements")
+    Call<JsonObject> getAllAdvertisements(@Body JsonObject object);
+
+    @POST(APIClient.APPEND_URL + "updateAdvertisements")
+    Call<JsonObject> updateAdvertisements(@Body JsonObject object);
+
+    @POST(APIClient.APPEND_URL + "deleteAdvertisements")
+    Call<JsonObject> deleteAdvertisements(@Body JsonObject object);
+
 }

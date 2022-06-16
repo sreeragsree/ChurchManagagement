@@ -2,9 +2,8 @@ package com.example.churchmanagement.Model;
 
 
 import com.example.churchmanagement.Authentication.AllMember;
-
+import com.example.churchmanagement.Events.AllChurchEvent;
 import com.example.churchmanagement.Ministry.AllMinistry;
-
 import com.example.churchmanagement.Ministry.MemberListMinistry;
 import com.example.churchmanagement.Ministry.MinistryReqStatusId;
 import com.google.gson.annotations.Expose;
@@ -13,6 +12,18 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class ResultData {
+
+    @SerializedName("All_Church_Events")
+    @Expose
+    private List<AllChurchEvent> allChurchEvents = null;
+
+    public List<AllChurchEvent> getAllChurchEvents() {
+        return allChurchEvents;
+    }
+
+    public void setAllChurchEvents(List<AllChurchEvent> allChurchEvents) {
+        this.allChurchEvents = allChurchEvents;
+    }
 
     @SerializedName("All_Members")
     @Expose

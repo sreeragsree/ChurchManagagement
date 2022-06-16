@@ -56,6 +56,7 @@ public class EventsActivity extends BaseActivity implements View.OnClickListener
     ActivityEventsBinding binding;
     List<AllChurchEvent> allChurchEvents;
     private final int CGALLERY = 1;
+    String update_id="";
     String eventencodedImage = "", imgname = "";
     final Calendar myCalendar = Calendar.getInstance();
 
@@ -76,7 +77,7 @@ public class EventsActivity extends BaseActivity implements View.OnClickListener
         binding.btnAdAttach.setOnClickListener(this);
         binding.edStartDate.setOnClickListener(this);
         binding.edEndDate.setOnClickListener(this);
-        if(!Utils.getSharedPreference().getString("username","").equalsIgnoreCase("admin@gmail.com")){
+        if (!Utils.getSharedPreference().getString("username", "").equalsIgnoreCase("admin@gmail.com")) {
 
             binding.btnAdd.setVisibility(View.GONE);
             binding.btnView.setVisibility(View.GONE);
@@ -162,24 +163,45 @@ public class EventsActivity extends BaseActivity implements View.OnClickListener
 
             case R.id.btn_add:
 
-                if (binding.edAdTitle.getText().toString().isEmpty() &&
-                        binding.edAdDescription.getText().toString().isEmpty() &&
-                        binding.edStartDate.getText().toString().isEmpty() &&
-                        binding.edEndDate.getText().toString().isEmpty()) {
+                if (binding.btnAdd.getText().toString().equalsIgnoreCase("UPDATE")) {
 
-                    Toast.makeText(this, "Please Fill All Fields", Toast.LENGTH_SHORT).show();
-                } else if (eventencodedImage.isEmpty()) {
+                    editChurchEvents(update_id);
 
-                    Toast.makeText(this, "Please choose an image", Toast.LENGTH_SHORT).show();
+
                 } else {
+                    if (binding.edAdTitle.getText().toString().isEmpty() &&
+                            binding.edAdDescription.getText().toString().isEmpty() &&
+                            binding.edStartDate.getText().toString().isEmpty() &&
+                            binding.edEndDate.getText().toString().isEmpty()) {
 
-                    addChurchEvents();
+                        Toast.makeText(this, "Please Fill All Fields", Toast.LENGTH_SHORT).show();
+                    } else if (eventencodedImage.isEmpty()) {
+
+                        Toast.makeText(this, "Please choose an image", Toast.LENGTH_SHORT).show();
+                    } else {
+
+                        addChurchEvents();
+                    }
                 }
                 break;
 
             case R.id.btn_view:
+                if (binding.btnView.getText().toString().equalsIgnoreCase("View All")) {
 
-                getAllChurchEvents();
+                    binding.addView.setVisibility(View.GONE);
+                    binding.btnAdd.setVisibility(View.GONE);
+                    binding.btnView.setText("Go Back");
+                    getAllChurchEvents();
+                } else {
+                    binding.addView.setVisibility(View.VISIBLE);
+                    binding.rcvEvents.setVisibility(View.GONE);
+                    binding.tvNoDisplay.setVisibility(View.GONE);
+                    binding.btnAdd.setVisibility(View.VISIBLE);
+                    binding.btnView.setText("View All");
+
+
+                }
+
                 break;
 
             case R.id.ed_startDate:
@@ -310,21 +332,20 @@ public class EventsActivity extends BaseActivity implements View.OnClickListener
             }
 
 
-        }
-        else if(callNo.equalsIgnoreCase("getAllChurchEvents")){
-            Gson gson=new Gson();
-            Example example=gson.fromJson(result.toString(),Example.class);
+        } else if (callNo.equalsIgnoreCase("getAllChurchEvents")) {
+            Gson gson = new Gson();
+            Example example = gson.fromJson(result.toString(), Example.class);
             allChurchEvents = new ArrayList<>();
             if (example.getResultData().getAllChurchEvents() == null) {
                 hideProgressWheel(true);
                 binding.tvNoDisplay.setVisibility(View.VISIBLE);
                 binding.rcvEvents.setVisibility(View.GONE);
 
-            }
-            else{
+            } else {
                 allChurchEvents = example.getResultData().getAllChurchEvents();
                 hideProgressWheel(true);
                 binding.rcvEvents.setVisibility(View.VISIBLE);
+
                 EventAdapter adapter = new EventAdapter(EventsActivity.this, allChurchEvents, this);
                 binding.rcvEvents.setLayoutManager(new LinearLayoutManager(this));
                 binding.rcvEvents.setAdapter(adapter);
@@ -333,9 +354,35 @@ public class EventsActivity extends BaseActivity implements View.OnClickListener
             }
 
 
-        }
-        else{
+        } else if(callNo.equalsIgnoreCase("updateChurchEvents")){
+            Gson gson=new Gson();
+            ResponseCommon responseCommon=gson.fromJson(result.toString(),ResponseCommon.class);
+            hideProgressWheel(true);
+            if(responseCommon.getResult().equalsIgnoreCase("true")){
 
+                showAlert(responseCommon.getResponseMsg(),"Success");
+
+            }
+            else{
+                showAlert(responseCommon.getResponseMsg(),"Error");
+
+            }
+
+        }
+
+        else {
+            Gson gson=new Gson();
+            ResponseCommon responseCommon=gson.fromJson(result.toString(),ResponseCommon.class);
+            hideProgressWheel(true);
+            if(responseCommon.getResult().equalsIgnoreCase("true")){
+
+                showAlert(responseCommon.getResponseMsg(),"Success");
+
+            }
+            else{
+                showAlert(responseCommon.getResponseMsg(),"Error");
+
+            }
 
         }
 
@@ -355,23 +402,60 @@ public class EventsActivity extends BaseActivity implements View.OnClickListener
 
     @Override
     public void onItemClick(int position, String chk) {
-        String id=allChurchEvents.get(position).getId();
-        if(chk.equalsIgnoreCase("EDIT")){
+         update_id = allChurchEvents.get(position).getId();
+        if (chk.equalsIgnoreCase("EDIT")) {
+            binding.rcvEvents.setVisibility(View.GONE);
+            binding.btnView.setVisibility(View.GONE);
+            binding.addView.setVisibility(View.VISIBLE);
+            binding.btnAdd.setVisibility(View.VISIBLE);
+            binding.attchLayout.setVisibility(View.GONE);
+            binding.btnAdd.setText("UPDATE");
+            binding.edAdTitle.setText(allChurchEvents.get(position).getEventName());
+            binding.edAdDescription.setText(allChurchEvents.get(position).getEventDescription());
+            binding.edStartDate.setText(allChurchEvents.get(position).getStartDate());
+            binding.edEndDate.setText(allChurchEvents.get(position).getEndDate());
 
-            editChurchEvents(id);
+        } else {
 
-        }
-        else{
-
-            deleteChurchEvents(id);
+            deleteChurchEvents(update_id);
         }
 
     }
 
     private void editChurchEvents(String id) {
+        showProgressWheel();
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("id", id);
+            jsonObject.put("event_name", binding.edAdTitle.getText().toString());
+            jsonObject.put("event_description", binding.edAdDescription.getText().toString());
+            jsonObject.put("start_date", binding.edStartDate.getText().toString());
+            jsonObject.put("end_date", binding.edEndDate.getText().toString());
+            JsonParser jsonParser = new JsonParser();
+            Call<JsonObject> call = APIClient.getInterface().updateChurchEvents((JsonObject) jsonParser.parse(jsonObject.toString()));
+            GetResult getResult = new GetResult();
+            getResult.setMyListener(this);
+            getResult.onNCHandle(call, "updateChurchEvents");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
     }
 
 
     private void deleteChurchEvents(String id) {
+        showProgressWheel();
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("id", id);
+            JsonParser jsonParser = new JsonParser();
+            Call<JsonObject> call = APIClient.getInterface().deleteChurchEvents((JsonObject) jsonParser.parse(jsonObject.toString()));
+            GetResult getResult = new GetResult();
+            getResult.setMyListener(this);
+            getResult.onNCHandle(call, "deleteChurchEvents");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
     }
 }

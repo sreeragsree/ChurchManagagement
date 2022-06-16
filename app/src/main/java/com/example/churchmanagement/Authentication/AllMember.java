@@ -17,6 +17,9 @@ public class AllMember {
     @SerializedName("mobile")
     @Expose
     private String mobile;
+    @SerializedName("status")
+    @Expose
+    private String status;
 
     public String getId() {
         return id;
@@ -50,4 +53,11 @@ public class AllMember {
         this.mobile = mobile;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }

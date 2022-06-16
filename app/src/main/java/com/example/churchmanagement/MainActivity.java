@@ -44,6 +44,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         binding.members.setOnClickListener(this);
         binding.advertisement.setOnClickListener(this);
         binding.appointment.setOnClickListener(this);
+        binding.donations.setOnClickListener(this);
         binding.bookings.setOnClickListener(this);
         binding.news.setOnClickListener(this);
         binding.events.setOnClickListener(this);
@@ -52,7 +53,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         if (!Utils.getSharedPreference().getString("username", "").equalsIgnoreCase("admin@gmail.com")) {
             binding.members.setVisibility(View.GONE);
             binding.advertisement.setVisibility(View.GONE);
-            binding.donations.setVisibility(View.GONE);
         }
 
     }
@@ -81,7 +81,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 break;
 
             case R.id.advertisement:
-                startActivity(new Intent(this, AdvertisementActivity.class));
+                startActivity(new Intent(this, AdvertisementActivity.class).putExtra("req_type","advertisement"));
                 break;
 
             case R.id.events:
@@ -93,7 +93,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 break;
 
             case R.id.news:
-                startActivity(new Intent(this, NewsActivity.class));
+                startActivity(new Intent(this, AdvertisementActivity.class).putExtra("req_type","news"));
                 break;
 
             case R.id.bookings:

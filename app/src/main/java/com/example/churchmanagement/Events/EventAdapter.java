@@ -45,12 +45,12 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
             holder.binding.llAdminView.setVisibility(View.GONE);
 
         }
-        Glide.with(context).load(APIClient.baseUrl+"ChurchMgmt/"+event.getEventImg()).into(holder.binding.ivIcon);
-        holder.binding.tvEventName.setText(event.getEventName());
+        Glide.with(context).load(APIClient.baseUrl+event.getEventImg()).into(holder.binding.ivIcon);
+        holder.binding.tvEventName.setText("Event Name : "+event.getEventName());
         holder.binding.tvEventTitle.setText(event.getEventName());
-        holder.binding.tvEventDescription.setText(event.getEventDescription());
-        holder.binding.tvEventStartDate.setText(event.getStartDate());
-        holder.binding.tvEventEndDate.setText(event.getEndDate());
+        holder.binding.tvEventDescription.setText("Description : "+event.getEventDescription());
+        holder.binding.tvEventStartDate.setText("Start Date : "+event.getStartDate());
+        holder.binding.tvEventEndDate.setText("End Date : "+event.getEndDate());
 
     }
 

@@ -1,7 +1,10 @@
 package com.example.churchmanagement.Model;
 
 
+import com.example.churchmanagement.Advertisement.AllAdvertisement;
+import com.example.churchmanagement.Appointment.AllAppointment;
 import com.example.churchmanagement.Authentication.AllMember;
+import com.example.churchmanagement.Donations.AllDonation;
 import com.example.churchmanagement.Events.AllChurchEvent;
 import com.example.churchmanagement.Ministry.AllMinistry;
 import com.example.churchmanagement.Ministry.MemberListMinistry;
@@ -12,6 +15,43 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class ResultData {
+
+    @SerializedName("All_Donations")
+    @Expose
+    private List<AllDonation> allDonations = null;
+
+    public List<AllDonation> getAllDonations() {
+        return allDonations;
+    }
+
+    public void setAllDonations(List<AllDonation> allDonations) {
+        this.allDonations = allDonations;
+    }
+
+
+    @SerializedName("All_Appointments")
+    @Expose
+    private List<AllAppointment> allAppointments = null;
+
+    public List<AllAppointment> getAllAppointments() {
+        return allAppointments;
+    }
+
+    public void setAllAppointments(List<AllAppointment> allAppointments) {
+        this.allAppointments = allAppointments;
+    }
+
+    @SerializedName("All_Advertisement")
+    @Expose
+    private List<AllAdvertisement> allAdvertisement = null;
+
+    public List<AllAdvertisement> getAllAdvertisement() {
+        return allAdvertisement;
+    }
+
+    public void setAllAdvertisement(List<AllAdvertisement> allAdvertisement) {
+        this.allAdvertisement = allAdvertisement;
+    }
 
     @SerializedName("All_Church_Events")
     @Expose

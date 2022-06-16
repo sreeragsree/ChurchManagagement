@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Advertisement.AdvertisementActivity">
 
     <include layout="@layout/toolbar_custom" />
 
     <ScrollView
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:animateLayoutChanges="true"
-        android:fillViewport="true"
-        android:layout_height="match_parent">
+        android:fillViewport="true">
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -51,19 +50,19 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:padding="5dp"
-                            android:visibility="gone"
                             android:text="Welcome to Dr.Medico Pharmacy"
                             android:textSize="18dp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:visibility="gone" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:visibility="gone"
                             android:gravity="center"
                             android:padding="2dp"
                             android:text="Please provide us with a few more details"
-                            android:textSize="16dp" />
+                            android:textSize="16dp"
+                            android:visibility="gone" />
 
                         <View
                             android:layout_width="match_parent"
@@ -88,17 +87,18 @@
                             android:padding="10dp">
 
                             <TextView
+                                android:id="@+id/title_head"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Advertaisement Title" />
+                                android:text="Advertisement Title" />
 
 
                             <EditText
-                                android:visibility="gone"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@null"
-                                android:padding="5dp" />
+                                android:padding="5dp"
+                                android:visibility="gone" />
 
                             <EditText
                                 android:id="@+id/ed_adTitle"
@@ -109,30 +109,39 @@
                         </LinearLayout>
 
                         <LinearLayout
-                            android:layout_marginTop="20sp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="20sp"
                             android:layout_weight="1"
                             android:background="@drawable/border"
                             android:orientation="vertical"
                             android:padding="10dp">
 
                             <TextView
+                                android:id="@+id/img_banner_head"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Attachment" />
 
 
                             <LinearLayout
-                                android:orientation="horizontal"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:id="@+id/img_adver"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="10dp"
+                                    android:visibility="gone" />
 
                                 <EditText
-                                    android:layout_weight="1"
                                     android:id="@+id/ed_adAttachment"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+                                    android:layout_weight="1"
                                     android:background="@null"
                                     android:padding="5dp" />
 
@@ -144,9 +153,9 @@
                                     android:layout_marginRight="10dp"
                                     android:background="@drawable/rounded_button"
                                     android:gravity="center"
-                                    android:text="Attach"
                                     android:paddingLeft="10dp"
                                     android:paddingRight="10dp"
+                                    android:text="Attach"
                                     android:textAllCaps="false"
                                     android:textColor="@color/white"
                                     android:textSize="18dp"
@@ -167,7 +176,9 @@
                             android:orientation="vertical"
                             android:padding="10dp">
 
+
                             <TextView
+                                android:id="@+id/description_head"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Description" />
@@ -218,10 +229,10 @@
                         android:textStyle="bold" />
 
                     <androidx.recyclerview.widget.RecyclerView
-                        android:padding="10dp"
-                        android:visibility="gone"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:visibility="gone" />
 
                     <TextView
                         android:id="@+id/btn_view"
@@ -241,24 +252,22 @@
                 </LinearLayout>
 
 
-
-
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:visibility="gone"
-                android:layout_marginBottom="150dp"
                 android:id="@+id/rcv_allAdvertisement"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:layout_marginBottom="150dp"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/tv_noDisplay"
-                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:gravity="center"
                 android:text="Nothing to display"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:visibility="gone" />
         </FrameLayout>
 
 

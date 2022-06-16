@@ -70,4 +70,29 @@ public interface Api {
     @POST(APIClient.APPEND_URL + "deleteAdvertisements")
     Call<JsonObject> deleteAdvertisements(@Body JsonObject object);
 
+    @POST(APIClient.APPEND_URL + "addAppointment")
+    Call<JsonObject> addAppointment(@Body JsonObject object);
+
+    @POST(APIClient.APPEND_URL + "getAllAppointments")
+    Call<JsonObject> getAllAppointments(@Body JsonObject object);
+
+    @POST(APIClient.APPEND_URL + "updateAppointmenmtStatus")
+    Call<JsonObject> updateAppointmenmtStatus(@Body JsonObject object);
+
+    @POST(APIClient.APPEND_URL + "addDonations")
+    Call<JsonObject> addDonations(@Body JsonObject object);
+
+    @POST(APIClient.APPEND_URL + "getAllDonations")
+    Call<JsonObject> getAllDonations(@Body JsonObject object);
+
+
+
+
+
+
+
+
+
+
+
 }

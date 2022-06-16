@@ -11,6 +11,7 @@
     <include layout="@layout/toolbar_custom" />
 
     <LinearLayout
+        android:id="@+id/lvlone"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -50,9 +51,11 @@
                android:layout_height="wrap_content"/>
 
            <EditText
+               android:id="@+id/amount"
                android:layout_weight="1"
                android:textSize="50sp"
                android:text="50"
+               android:inputType="number"
                android:gravity="left"
                android:background="@null"
                android:layout_width="match_parent"
@@ -60,16 +63,18 @@
 
        </LinearLayout>
 
-        <EditText
-            android:hint="enter description"
+        <Spinner
+            android:id="@+id/choose_purpose"
             android:gravity="center"
-            android:background="@null"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_width="200dp"
+            android:layout_gravity="center"
+            android:prompt="@string/app_name"
+            android:layout_height="50dp"/>
 
         <TextView
+
             android:layout_marginTop="100dp"
-            android:id="@+id/btn_add"
+            android:id="@+id/btn_pay"
             android:layout_width="match_parent"
             android:layout_height="52dp"
             android:layout_marginLeft="10dp"
@@ -86,6 +91,78 @@
             android:textSize="18dp"
             android:textStyle="bold" />
 
+    </LinearLayout>
+    <LinearLayout
+
+        android:id="@+id/lvltwo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"
+        >
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animationView"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            app:lottie_url="https://assets8.lottiefiles.com/private_files/lf30_poez9ped.json"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="false"/>
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="38dp" />
+
+        <TextView
+            android:fontFamily="@font/proximanovaregular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Congratulation!"
+
+            android:textColor="@color/black"
+            android:textSize="26dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:fontFamily="@font/proximanovaregular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="Thank you for the booking. We received your booking and we're happy to serve you anh have a nice weekend"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="58dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:elevation="10dp"
+            android:gravity="center">
+
+            <TextView
+                android:fontFamily="@font/proximanovaregular"
+                android:id="@+id/track_bookings"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/confirmation"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Go to Home"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

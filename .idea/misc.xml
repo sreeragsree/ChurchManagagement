@@ -25,9 +25,12 @@
         <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/drawable/circularbordersolidbottom.xml" value="0.1435" />
         <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/drawable/circularbordersolidtop.xml" value="0.1435" />
         <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/drawable/color_cursor.xml" value="0.1435" />
+        <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/drawable/confirmation.xml" value="0.1" />
+        <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/drawable/fab_background.xml" value="0.1" />
         <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/drawable/ic_baseline_verified_24.xml" value="0.1435" />
         <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/drawable/progress_wheel_bg.xml" value="0.147" />
         <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/drawable/rounded_button.xml" value="0.147" />
+        <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/drawable/tag_background.xml" value="0.1" />
         <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/drawable/toast_view_bg.xml" value="0.147" />
         <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/layout/activity_advertisement.xml" value="0.184375" />
         <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/layout/activity_all_users.xml" value="0.184375" />
@@ -39,10 +42,14 @@
         <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/layout/activity_ministry.xml" value="0.22" />
         <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/layout/activity_news.xml" value="0.184375" />
+        <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/layout/activity_payment_page.xml" value="0.19583333333333333" />
         <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/layout/activity_register.xml" value="0.19583333333333333" />
         <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/layout/activity_splash.xml" value="0.2" />
         <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/layout/advertisementcard.xml" value="0.18020833333333333" />
+        <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/layout/allbooking_card.xml" value="0.1" />
+        <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/layout/allmember_view.xml" value="0.1" />
         <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/layout/appointment_card.xml" value="0.1" />
+        <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/layout/donation_card.xml" value="0.19583333333333333" />
         <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/layout/event_card.xml" value="0.2" />
         <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/layout/progress_wheel.xml" value="0.184375" />
         <entry key="..\:/FABSTUDIOZ2022/app/src/main/res/layout/toolbar_custom.xml" value="0.184375" />

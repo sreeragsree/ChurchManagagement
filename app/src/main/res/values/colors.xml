@@ -62,6 +62,7 @@
     <color name="indigo_A400">#3D5AFE</color>
     <color name="indigo_A700">#304FFE</color>
     <color name="indigo_800_overlay">#E6283593</color>
+    <color name="red">#E6E42A2A</color>
 
     <color name="overlay_dark_10">#1A000000</color>
     <color name="overlay_dark_20">#33000000</color>

@@ -21,7 +21,7 @@ import com.example.churchmanagement.utils.Utils;
 
 public class BaseActivity extends AppCompatActivity {
     Toolbar toolbar;
-    private ProgressWheel progress;
+    private static ProgressWheel progress;
     private ActionBar actionBar = null;
 
     @Override
@@ -83,7 +83,7 @@ public class BaseActivity extends AppCompatActivity {
         return progress;
     }
 
-    public void showProgressWheel() {
+    public  void showProgressWheel() {
         ViewGroup parent = (ViewGroup) getProgress().getParent();
         if (parent != null) {
             parent.removeView(getProgress());

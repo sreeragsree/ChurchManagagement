@@ -41,12 +41,12 @@ public class AllMemberAdapter extends RecyclerView.Adapter<AllMemberAdapter.View
         holder.rowXmlViewBinding.memPhone.setText("Mobile : " + member.getMobile());
         if (member.getStatus().equalsIgnoreCase("0")) {
 
-            holder.rowXmlViewBinding.status.setText("NOT ACTIVE");
+            holder.rowXmlViewBinding.status.setText("ACTIVE");
             holder.rowXmlViewBinding.status.setBackgroundColor(context.getResources().getColor(R.color.red));
 
         } else {
 
-            holder.rowXmlViewBinding.status.setText("ACTIVE");
+            holder.rowXmlViewBinding.status.setText("DE-ACTIVATE");
             holder.rowXmlViewBinding.status.setBackgroundColor(context.getResources().getColor(R.color.green));
         }
 
@@ -63,6 +63,7 @@ public class AllMemberAdapter extends RecyclerView.Adapter<AllMemberAdapter.View
         public ViewHolder(@NonNull AllmemberViewBinding rowXmlViewBinding) {
             super(rowXmlViewBinding.getRoot());
             this.rowXmlViewBinding = rowXmlViewBinding;
+
             rowXmlViewBinding.cardFull.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -76,6 +77,10 @@ public class AllMemberAdapter extends RecyclerView.Adapter<AllMemberAdapter.View
                     recyclerViewClickInterface.onItemClick(getAdapterPosition(), "STATUS");
                 }
             });
+
+
+
+
         }
     }
 }

@@ -88,6 +88,28 @@ public class AllUsersActivity extends BaseActivity implements GetResult.MyListen
 
     @Override
     public void onItemClick(int position, String chk) {
+        String u_id=allMembers.get(position).getId();
+        String status=allMembers.get(position).getStatus();
+        showProgressWheel();
+        JSONObject jsonObject = new JSONObject();
+        try {
+            if(status.equalsIgnoreCase("0")) {
+                jsonObject.put("status","1");
+            }
+            else{
+
+                jsonObject.put("status","0");
+            }
+            jsonObject.put("id",u_id);
+            JsonParser jsonParser = new JsonParser();
+            Call<JsonObject> call = APIClient.getInterface().updateUStatus((JsonObject) jsonParser.parse(jsonObject.toString()));
+            GetResult getResult = new GetResult();
+            getResult.setMyListener(this);
+            getResult.onNCHandle(call, "updateUStatus");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
 
     }
 }

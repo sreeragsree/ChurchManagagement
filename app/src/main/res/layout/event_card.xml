@@ -90,6 +90,14 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/confirm"
+            android:layout_width="wrap_content"
+            android:text="CONFIRM"
+            android:visibility="gone"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"/>
+
         <LinearLayout
             android:id="@+id/llAdminView"
             android:layout_width="match_parent"

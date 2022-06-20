@@ -109,6 +109,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
                 startActivity(new Intent(this, MainActivity.class));
 
             }
+            else{
+
+                Toast.makeText(this, responseCommon.getResponseMsg(), Toast.LENGTH_SHORT).show();
+            }
 
 
         }

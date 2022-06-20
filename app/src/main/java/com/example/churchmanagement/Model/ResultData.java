@@ -4,6 +4,8 @@ package com.example.churchmanagement.Model;
 import com.example.churchmanagement.Advertisement.AllAdvertisement;
 import com.example.churchmanagement.Appointment.AllAppointment;
 import com.example.churchmanagement.Authentication.AllMember;
+import com.example.churchmanagement.Booking.AllAdminBooking;
+import com.example.churchmanagement.Booking.AllAmenity;
 import com.example.churchmanagement.Donations.AllDonation;
 import com.example.churchmanagement.Events.AllChurchEvent;
 import com.example.churchmanagement.Ministry.AllMinistry;
@@ -15,6 +17,30 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class ResultData {
+
+    @SerializedName("All_Admin_booking")
+    @Expose
+    private List<AllAdminBooking> allAdminBooking = null;
+
+    public List<AllAdminBooking> getAllAdminBooking() {
+        return allAdminBooking;
+    }
+
+    public void setAllAdminBooking(List<AllAdminBooking> allAdminBooking) {
+        this.allAdminBooking = allAdminBooking;
+    }
+
+    @SerializedName("All_Amenities")
+    @Expose
+    private List<AllAmenity> allAmenities = null;
+
+    public List<AllAmenity> getAllAmenities() {
+        return allAmenities;
+    }
+
+    public void setAllAmenities(List<AllAmenity> allAmenities) {
+        this.allAmenities = allAmenities;
+    }
 
     @SerializedName("All_Donations")
     @Expose

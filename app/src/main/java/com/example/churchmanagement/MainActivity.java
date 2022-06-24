@@ -1,7 +1,9 @@
 package com.example.churchmanagement;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -35,6 +37,16 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         ActionBarUtils.setActionBar(this, false);
         Login loginfo = new LoginDB().getData(Utils.getSharedPreference().getString("username", "st"));
         initViews(binding, loginfo);
+        checkDeepLink();
+    }
+
+    private void checkDeepLink() {
+        if (getIntent() != null && getIntent().getData() != null) {
+            Uri data = getIntent().getData();
+
+            Toast.makeText(this, data.getQueryParameter("securityCode"), Toast.LENGTH_SHORT).show();
+
+        }
     }
 
     private void initViews(ActivityMainBinding binding, Login loginfo) {

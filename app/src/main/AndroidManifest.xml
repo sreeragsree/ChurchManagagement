@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.churchmanagement">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -70,7 +72,18 @@
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="true" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="http" />
+                <data
+                    android:host="iwms-test.demoapps-online.com"
+                    android:pathPrefix="/reset-password" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

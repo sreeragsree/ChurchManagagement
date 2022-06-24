@@ -2,6 +2,7 @@ package com.example.churchmanagement.Donations;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 import com.example.churchmanagement.Authentication.Login;
 import com.example.churchmanagement.Authentication.LoginDB;
 import com.example.churchmanagement.BaseActivity;
+import com.example.churchmanagement.MainActivity;
 import com.example.churchmanagement.Model.ResponseCommon;
 import com.example.churchmanagement.R;
 import com.example.churchmanagement.Retrofit.APIClient;
@@ -53,11 +55,19 @@ public class PaymentPage extends BaseActivity implements View.OnClickListener, G
 
     private void initViews(ActivityPaymentPageBinding binding) {
         binding.btnPay.setOnClickListener(this);
+        binding.trackBookings.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()){
+
+            case R.id.track_bookings:
+
+                startActivity(new Intent(this, MainActivity.class));
+                finish();
+
+                break;
 
             case R.id.btn_pay:
 
@@ -106,6 +116,7 @@ public class PaymentPage extends BaseActivity implements View.OnClickListener, G
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        startActivity(new Intent(this, MainActivity.class));
         finish();
     }
 
